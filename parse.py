@@ -102,5 +102,3 @@ def to_csv (fpath: str):
 
     end_time = time.time()
     print(f"\nВремя, затраченное на наполнение csv файла = {str(end_time-start_time)[0:4]} сек.")
-
-to_csv ("houses-data.csv")
