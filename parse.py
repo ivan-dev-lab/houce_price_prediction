@@ -60,4 +60,3 @@ def get_house_parameters (house_url: str) -> dict:
 
     return house_parameters
 
-    return houses_links
