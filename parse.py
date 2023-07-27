@@ -60,7 +60,8 @@ def get_house_parameters (house_url: str) -> dict:
         for parameter in parameters_list:
             if parameter.find("Площадь") != -1:
                 house_parameters["area_house"] = float(parameter.replace("Площадь", "")[0:3])
-                house_parameters["area_land"] = float(parameter.split("участок ")[1][:-6])
+                if parameter.find("участок") != -1:
+                    house_parameters["area_land"] = float(parameter.split("участок ")[1][:-6])
             elif parameter.find("Тип участка") != -1:
                 house_parameters["type"] = parameter.replace("Тип участка", "")
             elif parameter.find("Дом") != -1:
@@ -80,17 +81,18 @@ def to_csv (fpath: str):
     print("Началась работа функции [ to_csv ]\n")
 
     start_time = time.time()
-
+    counter = 1
     houses_urls = get_houses_urls ()
     houses_parameters = []
 
     for url in houses_urls:
-        print(f"Обрабатывается ссылка {url} | {len(houses_parameters)}/{len(houses_urls)}", end=" ")
+        print(f"Обрабатывается ссылка {url} | {counter}/{len(houses_urls)}", end=" ")
         response = get_house_parameters(url)
         if response != 0:
             houses_parameters.append(response)
             print("| cсылка обработана", end="\n")
         else: print(end="\n")
+        counter+=1
     
     print(f"\nКоличество обработанных строк = {len(houses_parameters)}")
     print(f"Ссылок необработано = {len(houses_urls) - len(houses_parameters)}")
