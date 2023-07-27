@@ -22,6 +22,7 @@ def get_houses_urls () -> list:
                 houses_urls.append(link.attrs["href"])
             else:
                 continue
+        break # Зздесь break чтобы не тратить много времени на парсинг, после окончания работы - убрать
         
         page+=1
 
