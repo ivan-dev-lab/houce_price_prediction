@@ -1,6 +1,21 @@
+from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+
+data_raw = pd.read_csv("data/houses-data_raw.csv", index_col=[0])
+
+replacements = {
+    "индивидуальное жилищное строительство": 1,
+    "садоводство": 0,
+    "кирпич": 1,
+    "дерево": 2,
+    "блок": 3,
+    "монолит-кирпич": 4,
+    "монолит": 5,
+}
+
+X = data_raw.replace(replacements).iloc[:, 1:]
 
 
 def rate_scalers (scalers: dict, X: pd.DataFrame) -> dict:
@@ -68,7 +83,7 @@ def plot_scaler_data (scaler_score: dict, data_type: str, scaler_name: str, X: p
     plt.legend()
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f"{fchart}/{data_type} - {scaler_name}")
 
 def create_scaler_charts (score_scalers: dict, X: pd.DataFrame):
     for scaler_name, scaler_score_data in score_scalers.items():
