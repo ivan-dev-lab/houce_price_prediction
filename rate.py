@@ -1,28 +1,14 @@
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler
 import pandas as pd
 import numpy as np
-
-data_raw = pd.read_csv("data/houses-data_raw.csv", index_col=[0])
-
-replacements = {
-    "индивидуальное жилищное строительство": 1,
-    "садоводство": 0,
-    "кирпич": 1,
-    "дерево": 2,
-    "блок": 3,
-    "монолит-кирпич": 4,
-    "монолит": 5,
-}
-
-X = data_raw.replace(replacements).iloc[:, 1:]
+import matplotlib.pyplot as plt
 
 
 def rate_scalers (scalers: dict, X: pd.DataFrame) -> dict:
     result = {}
     intermediate_score_scaler = []
 
-    for key in scalers.keys():
-        result[key] = []
+    for name in scalers.keys():
+        result[name] = []
 
     for name, scaler in scalers.items():
         
@@ -53,12 +39,42 @@ def rate_scalers (scalers: dict, X: pd.DataFrame) -> dict:
 
     return result
 
+def plot_scaler_data (scaler_score: dict, data_type: str, scaler_name: str, X: pd.DataFrame, fchart: str="charts/"):
+    DATA = scaler_score[data_type]
 
-scalers = {
-    "MinMaxScaler": MinMaxScaler,
-    "StandardScaler": StandardScaler,
-    "MaxAbsScaler": MaxAbsScaler, 
-    "RobustScaler": RobustScaler,
-}
+    chart_data_full = []
+    chart_data_1 = []
+    chart_data_2 = []
 
-score_scalers = rate_scalers(scalers, X=X)
+    for index,column in enumerate(X.columns):
+        chart_data_1.append(DATA[index][f"{data_type.lower().split('_')[0]}[{column}]"])
+        chart_data_2.append(DATA[index][f"{data_type.lower().split('_')[1]}[{column}]"])
+
+    chart_data_full.append(chart_data_1)
+    chart_data_full.append(chart_data_2)
+
+    chart_data_1 = []
+    chart_data_2 = []
+    
+    plt.figure(figsize=(10, 6))
+
+    for i, data_row in enumerate(chart_data_full):
+        plt.barh(X.columns, data_row, label=f"{data_type.lower().split('_')[i]}", alpha=0.5)
+
+
+    plt.xlabel("Признаки")
+    plt.ylabel("Значения")
+    plt.title(f"{data_type} - {scaler_name}")
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+def create_scaler_charts (score_scalers: dict, X: pd.DataFrame):
+    for scaler_name, scaler_score_data in score_scalers.items():
+        for scaler_score in scaler_score_data:
+            if "MIN_MAX" in scaler_score:
+                plot_scaler_data(scaler_score, "MIN_MAX", scaler_name, X)
+            else:
+                plot_scaler_data(scaler_score, "MEAN_STD", scaler_name, X)
+
