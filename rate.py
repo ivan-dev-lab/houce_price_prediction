@@ -8,8 +8,12 @@ from preprocess import preprocess
 from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
+import keras
+from keras import regularizers
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
+from keras.optimizers import RMSprop, Adam
+from keras.metrics import MeanSquaredError
 
 
 # Оценка скалеров
@@ -90,12 +94,27 @@ def create_scaler_charts (score_scalers: dict, X: pd.DataFrame):
                 plot_scaler_data(scaler_score, "MEAN_STD", scaler_name, X)
 
 
+def create_model (input_shape: int) -> keras.Model:
+    model = Sequential()
+    model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))
+    model.add(layer=Dropout(0.5))
+    model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))
+    model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))
+    model.add(layer=Dense(units=1))
+
+    model.compile(optimizer=Adam(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])
+
+    return model
+
 data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
 
 X = data_preprocessed_dict["X"]
 Y = data_preprocessed_dict["Y"]
 
+
 def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
+    model = create_model(input_shape=len(X.columns))
+
     models = {
         'LinearRegression': LinearRegression,
         'HistGradientBoostingRegressor': HistGradientBoostingRegressor,
@@ -126,8 +145,24 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
         r2_scores.append(r2)
 
         if verbose:
-            print(f"{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}", end="\n\n")
+            print(f"{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
+
+    model = create_model(input_shape=len(X.columns))
+    model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)
+    y_pred = model.predict(x_test)
     
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+    r2 = r2_score(y_test, y_pred)
+
+    names.append("MyModelRegression")
+    mse_scores.append(mse)
+    mae_scores.append(mae)
+    r2_scores.append(r2)
+
+    if verbose:
+        print(f"MyModelRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
+            
     return (names, mse_scores, mae_scores, r2_scores)
      
 def create_models_charts (models_rating: tuple) -> None:
@@ -153,3 +188,5 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
 
+models_rating = rate_models(X,Y,verbose=False)
+create_models_charts(models_rating)
