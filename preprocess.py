@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler, Normalizer
-from rate import rate_scalers, create_scaler_charts
+#from rate import rate_scalers, create_scaler_charts
 
 
 def preprocess (fpath: str):
