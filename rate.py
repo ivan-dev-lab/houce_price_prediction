@@ -8,6 +8,8 @@ from preprocess import preprocess
 from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
 
 
 # Оценка скалеров
@@ -88,25 +90,23 @@ def create_scaler_charts (score_scalers: dict, X: pd.DataFrame):
                 plot_scaler_data(scaler_score, "MEAN_STD", scaler_name, X)
 
 
-
-models = {
-    'LinearRegression': LinearRegression,
-    'HistGradientBoostingRegressor': HistGradientBoostingRegressor,
-    'ExtraTreesRegressor': ExtraTreesRegressor,
-    'BaggingRegressor': BaggingRegressor,
-    'AdaBoostRegressor': AdaBoostRegressor,
-    'RandomForestRegressor': RandomForestRegressor,
-    'GradientBoostingRegressor': GradientBoostingRegressor,
-    'DecisionTreeRegressor': DecisionTreeRegressor
-}
-
 data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
 
 X = data_preprocessed_dict["X"]
 Y = data_preprocessed_dict["Y"]
 
-
-def rate_models (models: dict, X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
+def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
+    models = {
+        'LinearRegression': LinearRegression,
+        'HistGradientBoostingRegressor': HistGradientBoostingRegressor,
+        'ExtraTreesRegressor': ExtraTreesRegressor,
+        'BaggingRegressor': BaggingRegressor,
+        'AdaBoostRegressor': AdaBoostRegressor,
+        'RandomForestRegressor': RandomForestRegressor,
+        'GradientBoostingRegressor': GradientBoostingRegressor,
+        'DecisionTreeRegressor': DecisionTreeRegressor
+    }
+    
     names, mse_scores, mae_scores, r2_scores = [], [], [], []
 
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
@@ -130,7 +130,6 @@ def rate_models (models: dict, X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -
     
     return (names, mse_scores, mae_scores, r2_scores)
      
-
 def create_models_charts (models_rating: tuple) -> None:
     names, mse_scores, mae_scores, r2_scores = models_rating
 
