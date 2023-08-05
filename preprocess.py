@@ -1,7 +1,13 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
-def preprocess (fpath: str):
+## \brief Функция предобработки данных 
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
+## \param fpath Путь до необработанных данных
+## \return Словарь dict с тремя ключами: все данные, признаки, целевые переменные
+def preprocess (fpath: str) -> dict:
     data_raw = pd.read_csv(fpath, index_col=[0])
 
     data_preprocessed_dict = {
