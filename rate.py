@@ -1,23 +1,16 @@
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler
 import pandas as pd
 import numpy as np
+import seaborn as sns
 import matplotlib.pyplot as plt
-
-data_raw = pd.read_csv("data/houses-data_raw.csv", index_col=[0])
-
-replacements = {
-    "индивидуальное жилищное строительство": 1,
-    "садоводство": 0,
-    "кирпич": 1,
-    "дерево": 2,
-    "блок": 3,
-    "монолит-кирпич": 4,
-    "монолит": 5,
-}
-
-X = data_raw.replace(replacements).iloc[:, 1:]
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+from preprocess import preprocess
+from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.linear_model import LinearRegression
 
 
+# Оценка скалеров
 def rate_scalers (scalers: dict, X: pd.DataFrame) -> dict:
     result = {}
     intermediate_score_scaler = []
@@ -54,7 +47,7 @@ def rate_scalers (scalers: dict, X: pd.DataFrame) -> dict:
 
     return result
 
-def plot_scaler_data (scaler_score: dict, data_type: str, scaler_name: str, X: pd.DataFrame, fchart: str="charts/"):
+def plot_scaler_data (scaler_score: dict, data_type: str, scaler_name: str, X: pd.DataFrame, fchart: str="scalers_charts/"):
     DATA = scaler_score[data_type]
 
     chart_data_full = []
@@ -71,11 +64,12 @@ def plot_scaler_data (scaler_score: dict, data_type: str, scaler_name: str, X: p
     chart_data_1 = []
     chart_data_2 = []
     
+    sns.set_style("darkgrid")
+
     plt.figure(figsize=(10, 6))
 
     for i, data_row in enumerate(chart_data_full):
-        plt.barh(X.columns, data_row, label=f"{data_type.lower().split('_')[i]}", alpha=0.5)
-
+        plt.barh(X.columns, data_row, label=f"{data_type.lower().split('_')[i]}", alpha=0.5)   
 
     plt.xlabel("Признаки")
     plt.ylabel("Значения")
@@ -92,4 +86,71 @@ def create_scaler_charts (score_scalers: dict, X: pd.DataFrame):
                 plot_scaler_data(scaler_score, "MIN_MAX", scaler_name, X)
             else:
                 plot_scaler_data(scaler_score, "MEAN_STD", scaler_name, X)
+
+
+
+models = {
+    'LinearRegression': LinearRegression,
+    'HistGradientBoostingRegressor': HistGradientBoostingRegressor,
+    'ExtraTreesRegressor': ExtraTreesRegressor,
+    'BaggingRegressor': BaggingRegressor,
+    'AdaBoostRegressor': AdaBoostRegressor,
+    'RandomForestRegressor': RandomForestRegressor,
+    'GradientBoostingRegressor': GradientBoostingRegressor,
+    'DecisionTreeRegressor': DecisionTreeRegressor
+}
+
+data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
+
+X = data_preprocessed_dict["X"]
+Y = data_preprocessed_dict["Y"]
+
+
+def rate_models (models: dict, X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
+    names, mse_scores, mae_scores, r2_scores = [], [], [], []
+
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+
+    for name, Model in models.items():
+
+        model = Model().fit(x_train, y_train)
+        y_pred = model.predict(x_test)
+
+        mse = mean_squared_error(y_test, y_pred)
+        mae = mean_absolute_error(y_test, y_pred)
+        r2 = r2_score(y_test, y_pred)
+
+        names.append(name)
+        mse_scores.append(mse)
+        mae_scores.append(mae)
+        r2_scores.append(r2)
+
+        if verbose:
+            print(f"{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}", end="\n\n")
+    
+    return (names, mse_scores, mae_scores, r2_scores)
+     
+
+def create_models_charts (models_rating: tuple) -> None:
+    names, mse_scores, mae_scores, r2_scores = models_rating
+
+    print(names, mse_scores, mae_scores, r2_scores, sep="\n\n")
+
+    sns.set_style("darkgrid")
+    plt.figure(figsize=(20,10))
+
+    sns.barplot(x=r2_scores, y=names)
+    plt.xlabel("r2_score")
+    plt.ylabel("Названия моделей")
+    plt.savefig(f"models_charts/r2_scores")
+    
+    sns.barplot(x=mse_scores, y=names)
+    plt.xlabel("Mean-Squared-Error")
+    plt.ylabel("Названия моделей")
+    plt.savefig(f"models_charts/MSE")
+
+    sns.barplot(x=mae_scores, y=names)
+    plt.xlabel("Mean-Absolute-Error")
+    plt.ylabel("Названия моделей")
+    plt.savefig(f"models_charts/MAE")
 
