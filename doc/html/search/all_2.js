@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['get_5fhouse_5fparameters_0',['get_house_parameters',['../namespaceparse.html#a5f075fe82e7b518e502b07d9adcc690d',1,'parse']]],
-  ['get_5fhouses_5furls_1',['get_houses_urls',['../namespaceparse.html#a67ec5d5b4e99b11609398c0327db1e99',1,'parse']]]
+  ['data_5fpreprocessed_5fdict_0',['data_preprocessed_dict',['../namespacemain.html#a6d16554a8b3a7a35e648e35d9d11d812',1,'main.data_preprocessed_dict'],['../namespacerate.html#a117392a613909de041cfa2f43ed1499c',1,'rate.data_preprocessed_dict']]]
 ];

@@ -79,47 +79,60 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a51a96a7cdfe702eb66027d2fce2e33d1"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a51a96a7cdfe702eb66027d2fce2e33d1">rate_scalers</a> (dict scalers, pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>)</td></tr>
-<tr class="separator:a51a96a7cdfe702eb66027d2fce2e33d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab243a0e4652211f8ed0af163c3537ba8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#ab243a0e4652211f8ed0af163c3537ba8">plot_scaler_data</a> (dict scaler_score, str data_type, str scaler_name, pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>, str fchart=&quot;scalers_charts/&quot;)</td></tr>
-<tr class="separator:ab243a0e4652211f8ed0af163c3537ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad38b98db3e4392cf28590113612dfabe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#ad38b98db3e4392cf28590113612dfabe">create_scaler_charts</a> (dict score_scalers, pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>)</td></tr>
-<tr class="separator:ad38b98db3e4392cf28590113612dfabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0d2e775360ed227197fb5e6f396d33d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#aa0d2e775360ed227197fb5e6f396d33d">create_model</a> ()</td></tr>
-<tr class="separator:aa0d2e775360ed227197fb5e6f396d33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af606f3f64c56b95b2ddbe1f961ec01"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a3af606f3f64c56b95b2ddbe1f961ec01">rate_models</a> (dict <a class="el" href="namespacerate.html#a743a33ea81b694b6f099f5c969cc1025">models</a>, pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>, pd.DataFrame <a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a>, verbose=True)</td></tr>
-<tr class="separator:a3af606f3f64c56b95b2ddbe1f961ec01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bdb43f1a48f13278be89f28a3643397"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">create_models_charts</a> (tuple models_rating)</td></tr>
+<tr class="memitem:a75857afe7898432eae29cb11d05365aa"><td class="memItemLeft" align="right" valign="top">keras.Model&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a75857afe7898432eae29cb11d05365aa">create_model</a> (int input_shape)</td></tr>
+<tr class="memdesc:a75857afe7898432eae29cb11d05365aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для создания собственной модели машинного обучения  <br /></td></tr>
+<tr class="separator:a75857afe7898432eae29cb11d05365aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95aa05a2caf14b504ec45d984735c350"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate_models</a> (pd.DataFrame <a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>, pd.DataFrame <a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a>, verbose=True)</td></tr>
+<tr class="memdesc:a95aa05a2caf14b504ec45d984735c350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция-оценщик моделей  <br /></td></tr>
+<tr class="separator:a95aa05a2caf14b504ec45d984735c350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bdb43f1a48f13278be89f28a3643397"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">create_models_charts</a> (tuple <a class="el" href="namespacerate.html#a712aa12e23db3cd2cfbdb2bb7aeb8375">models_rating</a>)</td></tr>
+<tr class="memdesc:a3bdb43f1a48f13278be89f28a3643397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция построения графиков рейтинга моделей  <br /></td></tr>
 <tr class="separator:a3bdb43f1a48f13278be89f28a3643397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a743a33ea81b694b6f099f5c969cc1025"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a743a33ea81b694b6f099f5c969cc1025">models</a></td></tr>
-<tr class="separator:a743a33ea81b694b6f099f5c969cc1025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a117392a613909de041cfa2f43ed1499c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a117392a613909de041cfa2f43ed1499c">data_preprocessed_dict</a> = preprocess(&quot;data/houses-data_raw.csv&quot;)</td></tr>
+<tr class="memdesc:a117392a613909de041cfa2f43ed1499c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Словарь с предобработанными данными, признаками и целевым переменными  <br /></td></tr>
 <tr class="separator:a117392a613909de041cfa2f43ed1499c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80e9f81371822b4141460f03a7ce56bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a> = <a class="el" href="namespacerate.html#a117392a613909de041cfa2f43ed1499c">data_preprocessed_dict</a>[&quot;X&quot;]</td></tr>
+<tr class="memdesc:a80e9f81371822b4141460f03a7ce56bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Признаки данных  <br /></td></tr>
 <tr class="separator:a80e9f81371822b4141460f03a7ce56bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a919776fc0de3ac921f2d4d999e81caa0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a> = <a class="el" href="namespacerate.html#a117392a613909de041cfa2f43ed1499c">data_preprocessed_dict</a>[&quot;Y&quot;]</td></tr>
+<tr class="memdesc:a919776fc0de3ac921f2d4d999e81caa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Целевые переменные данных  <br /></td></tr>
 <tr class="separator:a919776fc0de3ac921f2d4d999e81caa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a712aa12e23db3cd2cfbdb2bb7aeb8375"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerate.html#a712aa12e23db3cd2cfbdb2bb7aeb8375">models_rating</a> = <a class="el" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate_models</a>(<a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>,<a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a>,verbose=False)</td></tr>
+<tr class="separator:a712aa12e23db3cd2cfbdb2bb7aeb8375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa0d2e775360ed227197fb5e6f396d33d" name="aa0d2e775360ed227197fb5e6f396d33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0d2e775360ed227197fb5e6f396d33d">&#9670;&#160;</a></span>create_model()</h2>
+<a id="a75857afe7898432eae29cb11d05365aa" name="a75857afe7898432eae29cb11d05365aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75857afe7898432eae29cb11d05365aa">&#9670;&#160;</a></span>create_model()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">rate.create_model </td>
+          <td class="memname"> keras.Model rate.create_model </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>input_shape</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00092">92</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Функция для создания собственной модели машинного обучения </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">input_shape</td><td>Определяет количество входных признаков для входного слоя. input_shape=len(X.columns) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Скомпилированная модель Keras </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00023">23</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -139,90 +152,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00137">137</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Функция построения графиков рейтинга моделей </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>Признаки входных данных </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>Целевые переменные входных данных </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00123">123</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
-<a id="ad38b98db3e4392cf28590113612dfabe" name="ad38b98db3e4392cf28590113612dfabe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad38b98db3e4392cf28590113612dfabe">&#9670;&#160;</a></span>create_scaler_charts()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">rate.create_scaler_charts </td>
-          <td>(</td>
-          <td class="paramtype">dict&#160;</td>
-          <td class="paramname"><em>score_scalers</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">pd.DataFrame&#160;</td>
-          <td class="paramname"><em>X</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00084">84</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
-
-</div>
-</div>
-<a id="ab243a0e4652211f8ed0af163c3537ba8" name="ab243a0e4652211f8ed0af163c3537ba8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab243a0e4652211f8ed0af163c3537ba8">&#9670;&#160;</a></span>plot_scaler_data()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">rate.plot_scaler_data </td>
-          <td>(</td>
-          <td class="paramtype">dict&#160;</td>
-          <td class="paramname"><em>scaler_score</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>data_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>scaler_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">pd.DataFrame&#160;</td>
-          <td class="paramname"><em>X</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">str&#160;</td>
-          <td class="paramname"><em>fchart</em> = <code>&quot;scalers_charts/&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00052">52</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
-
-</div>
-</div>
-<a id="a3af606f3f64c56b95b2ddbe1f961ec01" name="a3af606f3f64c56b95b2ddbe1f961ec01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3af606f3f64c56b95b2ddbe1f961ec01">&#9670;&#160;</a></span>rate_models()</h2>
+<a id="a95aa05a2caf14b504ec45d984735c350" name="a95aa05a2caf14b504ec45d984735c350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95aa05a2caf14b504ec45d984735c350">&#9670;&#160;</a></span>rate_models()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -230,12 +179,6 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"> tuple rate.rate_models </td>
           <td>(</td>
-          <td class="paramtype">dict&#160;</td>
-          <td class="paramname"><em>models</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">pd.DataFrame&#160;</td>
           <td class="paramname"><em>X</em>, </td>
         </tr>
@@ -259,37 +202,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00112">112</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Функция-оценщик моделей </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">X</td><td>Признаки входных данных </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Y</td><td>Целевые переменные входных данных </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbose</td><td>Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score ) </dd></dl>
 
-</div>
-</div>
-<a id="a51a96a7cdfe702eb66027d2fce2e33d1" name="a51a96a7cdfe702eb66027d2fce2e33d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51a96a7cdfe702eb66027d2fce2e33d1">&#9670;&#160;</a></span>rate_scalers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"> dict rate.rate_scalers </td>
-          <td>(</td>
-          <td class="paramtype">dict&#160;</td>
-          <td class="paramname"><em>scalers</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">pd.DataFrame&#160;</td>
-          <td class="paramname"><em>X</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00016">16</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00061">61</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -306,33 +233,28 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00106">106</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Словарь с предобработанными данными, признаками и целевым переменными </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00039">39</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
-<a id="a743a33ea81b694b6f099f5c969cc1025" name="a743a33ea81b694b6f099f5c969cc1025"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a743a33ea81b694b6f099f5c969cc1025">&#9670;&#160;</a></span>models</h2>
+<a id="a712aa12e23db3cd2cfbdb2bb7aeb8375" name="a712aa12e23db3cd2cfbdb2bb7aeb8375"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a712aa12e23db3cd2cfbdb2bb7aeb8375">&#9670;&#160;</a></span>models_rating</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">dict rate.models</td>
+          <td class="memname">tuple rate.models_rating = <a class="el" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">rate_models</a>(<a class="el" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">X</a>,<a class="el" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">Y</a>,verbose=False)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  {</div>
-<div class="line"><span class="lineno">    2</span>    <span class="stringliteral">&#39;LinearRegression&#39;</span>: LinearRegression,</div>
-<div class="line"><span class="lineno">    3</span>    <span class="stringliteral">&#39;HistGradientBoostingRegressor&#39;</span>: HistGradientBoostingRegressor,</div>
-<div class="line"><span class="lineno">    4</span>    <span class="stringliteral">&#39;ExtraTreesRegressor&#39;</span>: ExtraTreesRegressor,</div>
-<div class="line"><span class="lineno">    5</span>    <span class="stringliteral">&#39;BaggingRegressor&#39;</span>: BaggingRegressor,</div>
-<div class="line"><span class="lineno">    6</span>    <span class="stringliteral">&#39;AdaBoostRegressor&#39;</span>: AdaBoostRegressor,</div>
-<div class="line"><span class="lineno">    7</span>    <span class="stringliteral">&#39;RandomForestRegressor&#39;</span>: RandomForestRegressor,</div>
-<div class="line"><span class="lineno">    8</span>    <span class="stringliteral">&#39;GradientBoostingRegressor&#39;</span>: GradientBoostingRegressor,</div>
-<div class="line"><span class="lineno">    9</span>    <span class="stringliteral">&#39;DecisionTreeRegressor&#39;</span>: DecisionTreeRegressor</div>
-<div class="line"><span class="lineno">   10</span>}</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00095">95</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00146">146</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -348,7 +270,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00108">108</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Признаки данных </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00045">45</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>
@@ -364,7 +291,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00109">109</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
+<p>Целевые переменные данных </p>
+<dl class="section author"><dt>Authors</dt><dd>ivan-dev-lab </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>05.08.2023 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="rate_8py_source.html#l00051">51</a> of file <a class="el" href="rate_8py_source.html">rate.py</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['models_0',['models',['../namespacerate.html#a743a33ea81b694b6f099f5c969cc1025',1,'rate']]]
+  ['models_5frating_0',['models_rating',['../namespacerate.html#a712aa12e23db3cd2cfbdb2bb7aeb8375',1,'rate']]]
 ];
