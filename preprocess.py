@@ -1,7 +1,5 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler, Normalizer
-#from rate import rate_scalers, create_scaler_charts
-
 
 def preprocess (fpath: str):
     data_raw = pd.read_csv(fpath, index_col=[0])
@@ -26,17 +24,6 @@ def preprocess (fpath: str):
 
     data_preprocessed_dict["data_preprocessed"] = data_preprocessed
     data_preprocessed_dict["Y"] = data_preprocessed["price"]
-
-    # scalers = {
-    # "MinMaxScaler": MinMaxScaler,
-    # "StandardScaler": StandardScaler,
-    # "MaxAbsScaler": MaxAbsScaler, 
-    # "RobustScaler": RobustScaler,
-    # "Normalizer": Normalizer
-    # }
-
-    # score_scalers = rate_scalers(scalers, X=X_raw)
-    # create_scaler_charts(score_scalers, X_raw)
 
     X_raw = data_preprocessed.iloc[:, 1:]
     scaler = MinMaxScaler().fit(X_raw)
