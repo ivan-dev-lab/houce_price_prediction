@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler, StandardScaler, MaxAbsScaler, RobustScaler, Normalizer
+from sklearn.preprocessing import MinMaxScaler
 
 def preprocess (fpath: str):
     data_raw = pd.read_csv(fpath, index_col=[0])
