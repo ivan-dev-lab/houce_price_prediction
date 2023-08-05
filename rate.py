@@ -14,7 +14,12 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop, Adam
 from keras.metrics import MeanSquaredError
 
-
+## \brief Функция для создания собственной модели машинного обучения
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
+## \param[in] input_shape Определяет количество входных признаков для входного слоя. input_shape=len(X.columns)
+## \return Скомпилированная модель Keras
 def create_model (input_shape: int) -> keras.Model:
     model = Sequential()
     model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))
@@ -27,12 +32,32 @@ def create_model (input_shape: int) -> keras.Model:
 
     return model
 
+## \brief Словарь с предобработанными данными, признаками и целевым переменными
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
 data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
 
+## \brief Признаки данных
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
 X = data_preprocessed_dict["X"]
+
+## \brief Целевые переменные данных
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
 Y = data_preprocessed_dict["Y"]
 
-
+## \brief Функция-оценщик моделей
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
+## \param[in] X Признаки входных данных 
+## \param[in] Y Целевые переменные входных данных 
+## \param[in] verbose Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True
+## \return Кортеж tuple(), содержащий названия моделей и результаты их обучения ( mse, mae, r2_score )
 def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
     model = create_model(input_shape=len(X.columns))
 
@@ -86,6 +111,15 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
             
     return (names, mse_scores, mae_scores, r2_scores)
      
+
+## \brief Функция построения графиков рейтинга моделей
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 05.08.2023
+## \param[in] X Признаки входных данных 
+## \param[in] Y Целевые переменные входных данных 
+## \param[in] verbose Аргумент определяет вывод на экран результаты обучения моделей. По умолчанию = True
+## \return None
 def create_models_charts (models_rating: tuple) -> None:
     names, mse_scores, mae_scores, r2_scores = models_rating
 
