@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 ## \brief Функция предобработки данных 
 ## \authors ivan-dev-lab
@@ -8,35 +8,43 @@ from sklearn.preprocessing import MinMaxScaler
 ## \param fpath Путь до необработанных данных
 ## \return Словарь dict с тремя ключами: все данные, признаки, целевые переменные
 def preprocess (fpath: str) -> dict:
-    data_raw = pd.read_csv(fpath, index_col=[0])
+    pd.options.display.float_format = '{:.2f}'.format
+
+    data = pd.read_csv(fpath)
 
     data_preprocessed_dict = {
-        "data_preprocessed": pd.DataFrame,
+        "data": pd.DataFrame,
         "X": pd.DataFrame,
         "Y": pd.DataFrame,
     }
 
-    replacements = {
-        "индивидуальное жилищное строительство": 1,
-        "садоводство": 0,
-        "кирпич": 1,
-        "дерево": 2,
-        "блок": 3,
-        "монолит-кирпич": 4,
-        "монолит": 5,
-    }
     
-    data_preprocessed = data_raw.replace(replacements)
+    data.drop("date", axis=1, inplace=True)
+    data.drop("street", axis=1, inplace=True)
+    data.drop("statezip", axis=1, inplace=True)
+    data.drop("country", axis=1, inplace=True)
+    data.drop("sqft_basement", axis=1, inplace=True)
 
-    data_preprocessed_dict["data_preprocessed"] = data_preprocessed
-    data_preprocessed_dict["Y"] = data_preprocessed["price"]
+    city_replacements = {}
 
-    X_raw = data_preprocessed.iloc[:, 1:]
-    scaler = MinMaxScaler().fit(X_raw)
-    X_preprocessed = pd.DataFrame(data=scaler.transform(X_raw), columns=X_raw.columns)
-    
-    data_preprocessed_dict["X"] = X_preprocessed
+    for unique_index,unique_city in enumerate(data["city"].unique()):
+        city_replacements[unique_city] = unique_index
+
+    data["city"].replace(city_replacements, inplace=True)
+    data_columns = data.columns
+
+    Y = data["price"]
+
+    scaler = StandardScaler().fit(data)
+    data = pd.DataFrame(data=scaler.transform(data), columns=data_columns)
+
+    X = data.iloc[:, 1:]
+
+    data_preprocessed_dict["data"] = data
+    data_preprocessed_dict["X"] = X
+    data_preprocessed_dict["Y"] = Y
+
+    print(data_preprocessed_dict)
 
     return data_preprocessed_dict
-    
     
