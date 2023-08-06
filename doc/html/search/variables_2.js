@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['random_5fstate_0',['random_state',['../namespacemain.html#a760cf6384663bdfed61070c89e69869b',1,'main']]]
+  ['x_0',['X',['../namespacerate.html#a80e9f81371822b4141460f03a7ce56bd',1,'rate']]]
 ];
