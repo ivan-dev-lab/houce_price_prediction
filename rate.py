@@ -3,34 +3,17 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
-from preprocess import preprocess
 from sklearn.ensemble import HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
-import keras
-from keras import regularizers
-from keras.models import Sequential
-from keras.layers import Dense, Dropout
-from keras.optimizers import RMSprop, Adam
-from keras.metrics import MeanSquaredError
-
+from preprocess import preprocess
+from create_model import create_model
 ## \brief Функция для создания собственной модели машинного обучения
 ## \authors ivan-dev-lab
 ## \version 1.0.0
 ## \date 05.08.2023
 ## \param[in] input_shape Определяет количество входных признаков для входного слоя. input_shape=len(X.columns)
 ## \return Скомпилированная модель Keras
-def create_model (input_shape: int) -> keras.Model:
-    model = Sequential()
-    model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))
-    model.add(layer=Dropout(0.5))
-    model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))
-    model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))
-    model.add(layer=Dense(units=1))
-
-    model.compile(optimizer=RMSprop(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])
-
-    return model
 
 ## \brief Словарь с предобработанными данными, признаками и целевым переменными
 ## \authors ivan-dev-lab
@@ -93,7 +76,7 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
         if verbose:
             print(f"{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}")
 
-    model = create_model(input_shape=len(X.columns))
+    model = create_model(input_shape=X.shape[1])
     model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)
     y_pred = model.predict(x_test)
     
