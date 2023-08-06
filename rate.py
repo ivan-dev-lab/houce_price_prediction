@@ -36,7 +36,7 @@ def create_model (input_shape: int) -> keras.Model:
 ## \authors ivan-dev-lab
 ## \version 1.0.0
 ## \date 05.08.2023
-data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
+data_preprocessed_dict = preprocess("data/houses-data_kaggle.csv")
 
 ## \brief Признаки данных
 ## \authors ivan-dev-lab
