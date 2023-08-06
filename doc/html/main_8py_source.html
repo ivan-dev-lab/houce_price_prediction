@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>house_price_pred: main.py Source File</title>
+<title>house_price_pred: C:/Users/User/Desktop/houce_price_prediction/main.py Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,20 +70,20 @@ $(function() {
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">main.py</div></div>
+  <div class="headertitle"><div class="title">C:/Users/User/Desktop/houce_price_prediction/main.py</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="main_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacemain.html">    1</a></span><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error, mean_absolute_error, r2_score</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold, train_test_split</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> preprocess <span class="keyword">import</span> preprocess</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> rate <span class="keyword">import</span> rate_models, create_models_charts, create_model</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacemain.html#a6d16554a8b3a7a35e648e35d9d11d812">   11</a></span>data_preprocessed_dict = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/houses-data_raw.csv&quot;</span>)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacemain.html#a6d16554a8b3a7a35e648e35d9d11d812">   11</a></span>data_preprocessed_dict = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/houses-data_kaggle.csv&quot;</span>)</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacemain.html#ac29972d49a14b4957163625795392dda">   17</a></span>houses_data = data_preprocessed_dict[<span class="stringliteral">&quot;data_preprocessed&quot;</span>]</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacemain.html#ac29972d49a14b4957163625795392dda">   17</a></span>houses_data = data_preprocessed_dict[<span class="stringliteral">&quot;data&quot;</span>]</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacemain.html#a5e5a3590446dc37ddca5b82285166ece">   23</a></span>X = data_preprocessed_dict[<span class="stringliteral">&quot;X&quot;</span>]</div>
@@ -93,6 +93,20 @@ $(function() {
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"># Проведя сравнение, выяснилось, что средняя оценка всех моделей, участвовавших в рейтинге ( см. rate.py ) колеблется в диапазоне [0.45, 0.54]. Следовательно, проблема не в моделях, а в исходных даннных. </span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"># Проект будет временно приостановлен, пока не будут найдены новые данные, на которых будет лучше проводить обучение</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacemain.html#a760cf6384663bdfed61070c89e69869b">   33</a></span>x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacemain.html#ae67a66169c68252b0abd429b8da2b03a">   37</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemain.html#ae67a66169c68252b0abd429b8da2b03a">train_model</a> (x_train, x_test, y_train, y_test):</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    model = create_model(X.shape[1])</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    y_pred = model.predict(x_test)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    mse = mean_squared_error(y_test, y_pred)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    mae = mean_absolute_error(y_test, y_pred)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    score = r2_score(y_test, y_pred)</div>
+<div class="ttc" id="anamespacemain_html_ae67a66169c68252b0abd429b8da2b03a"><div class="ttname"><a href="namespacemain.html#ae67a66169c68252b0abd429b8da2b03a">main.train_model</a></div><div class="ttdeci">train_model(x_train, x_test, y_train, y_test)</div><div class="ttdef"><b>Definition</b> <a href="main_8py_source.html#l00037">main.py:37</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html"><div class="ttname"><a href="namespacepreprocess.html">preprocess</a></div><div class="ttdef"><b>Definition</b> <a href="preprocess_8py_source.html#l00001">preprocess.py:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
