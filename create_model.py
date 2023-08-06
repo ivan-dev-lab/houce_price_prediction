@@ -5,6 +5,12 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 from keras.metrics import MeanSquaredError
 
+## \brief Функция для создания модели модели
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 06.08.2023
+## \param[in] input_shape Размерность входных данных. Необходима для входного слоя модели
+## \return keras.Model - скомпилированная, но не обученная модель
 def create_model (input_shape: int) -> keras.Model:
     model = Sequential()
     model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))

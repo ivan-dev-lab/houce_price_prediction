@@ -6,6 +6,12 @@ from preprocess import preprocess
 from rate import rate_models, create_models_charts
 from create_model import create_model
 
+## \brief Главная функция для запуска кода
+## \authors ivan-dev-lab
+## \version 1.0.0
+## \date 06.08.2023
+## \param None
+## \return None
 def main ():
     ## \brief Словарь с обработанными данными, признаками и целевым переменными
     ## \authors ivan-dev-lab
@@ -31,8 +37,22 @@ def main ():
     ## \date 05.08.2023
     Y = data_preprocessed_dict["Y"]
 
-    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+    # предполагается, что во время использования этой функции как конечного продукта - пользователь будет выяснять по графикам - какая модель лучше, исходя из этого останавливая свой выбор на данной модели
 
+    # models_rating = rate_models(X,Y,verbose=False)
+    # create_models_charts(models_rating)
+
+    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
+    
+    ## \brief Функция для тренировки модели
+    ## \authors ivan-dev-lab
+    ## \version 1.0.0
+    ## \date 06.08.2023
+    ## \param[in] x_train Одна из частей данных для тренировки модели. Содержит в себе 80% признаков из данных
+    ## \param[in] x_test Одна из частей данных для тренировки модели. Содержит в себе 20% признаков из данных
+    ## \param[in] y_train Одна из частей данных для тренировки модели. Содержит в себе 80% целевых переменных из данных
+    ## \param[in] y_test Одна из частей данных для тренировки модели. Содержит в себе 20% целевых переменных из данных
+    ## \return Словарь dict с такими метриками модели, как mse, mae, r2_score
     def train_model (x_train, x_test, y_train, y_test) -> dict:
         scores_dict = {
             "mse": float,
@@ -52,6 +72,7 @@ def main ():
         return scores_dict
 
     train_result = train_model (x_train, x_test, y_train, y_test)
+
     print(f"Итоговые результаты модели:\nmse = {train_result['mse']}\nmae = {train_result['mae']}\nr2_score = {train_result['r2_score']}")
 
 
