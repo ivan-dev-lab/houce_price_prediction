@@ -14,7 +14,7 @@ data_preprocessed_dict = preprocess("data/houses-data_raw.csv")
 ## \authors ivan-dev-lab
 ## \version 1.0.0
 ## \date 05.08.2023
-houses_data = data_preprocessed_dict["data_preprocessed"]
+houses_data = data_preprocessed_dict["data"]
 
 ## \brief Признаки данных
 ## \authors ivan-dev-lab
