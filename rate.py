@@ -28,7 +28,7 @@ def create_model (input_shape: int) -> keras.Model:
     model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))
     model.add(layer=Dense(units=1))
 
-    model.compile(optimizer=Adam(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])
+    model.compile(optimizer=RMSprop(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])
 
     return model
 
@@ -111,7 +111,6 @@ def rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=True) -> tuple:
             
     return (names, mse_scores, mae_scores, r2_scores)
      
-
 ## \brief Функция построения графиков рейтинга моделей
 ## \authors ivan-dev-lab
 ## \version 1.0.0
@@ -142,6 +141,3 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
-
-models_rating = rate_models(X,Y,verbose=False)
-create_models_charts(models_rating)
