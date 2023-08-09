@@ -62,23 +62,22 @@
 </li>
 <br>
 <p>Исходный код архитектуры модели:</p>
-<code>
-model = Sequential()
-model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))
-model.add(layer=Dropout(0.5))
-model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))
-model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))
-model.add(layer=Dense(units=1))
 
-model.compile(optimizer=RMSprop(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])
-</code>
+<code>model = Sequential()</code>
+<code>model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))</code>
+<code>model.add(layer=Dropout(0.5))</code>
+<code>model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))</code>
+<code>model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))</code>
+<code>model.add(layer=Dense(units=1))</code>
+
+<code>model.compile(optimizer=RMSprop(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])</code>
+
 </ol>
 <h2>Итоговые результаты модели:</h2>
-<code>
-mse = <b>43718843934.33928</b><br>
-mae = <b>114910.8332076866</b><br>
-r2_score = <b>0.706132088973525</b>
-</code>
+<code>mse = <b>43718843934.33928</b></code><br>
+<code>mae = <b>114910.8332076866</b></code><br>
+<code>r2_score = <b>0.706132088973525</b></code>
+
 <p>В целях улучшения точности модели и снижения mse и mae сделан фокус на улучшение имеющихся данных</p>
 <h2>Автор проекта</h2>
 <p>Улановский Иван:</p>
