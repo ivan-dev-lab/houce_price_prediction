@@ -63,12 +63,12 @@
 <br>
 <p>Исходный код архитектуры модели:</p>
 
-<code>model = Sequential()</code>
-<code>model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))</code>
-<code>model.add(layer=Dropout(0.5))</code>
-<code>model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))</code>
-<code>model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))</code>
-<code>model.add(layer=Dense(units=1))</code>
+<code>model = Sequential()</code><br>
+<code>model.add(layer=Dense(units=100, activation="relu", input_shape=(input_shape,)))</code><br>
+<code>model.add(layer=Dropout(0.5))</code><br>
+<code>model.add(layer=Dense(units=100, activation="relu", kernel_regularizer=regularizers.l1(0.01)))</code><br>
+<code>model.add(layer=Dense(units=50, activation="relu", kernel_regularizer=regularizers.l2(0.01)))</code><br>
+<code>model.add(layer=Dense(units=1))</code><br>
 
 <code>model.compile(optimizer=RMSprop(learning_rate= 0.01), loss="mse", metrics=[MeanSquaredError()])</code>
 
