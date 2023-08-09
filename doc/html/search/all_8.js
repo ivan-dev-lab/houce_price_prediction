@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['to_5fcsv_0',['to_csv',['../namespaceparse.html#adaff890e08560a547348cdd69d264698',1,'parse']]]
+  ['x_0',['X',['../namespacerate.html#a80e9f81371822b4141460f03a7ce56bd',1,'rate']]]
 ];

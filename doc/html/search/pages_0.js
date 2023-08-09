@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_23_23_23_20модель_20предсказания_20цен_20на_20недвижмость_0',['### Модель предсказания цен на недвижмость',['../md__c_1_2_users_2_user_2_desktop_2houce__price__prediction_2_r_e_a_d_m_e.html',1,'']]]
+  ['readme_0',['README',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

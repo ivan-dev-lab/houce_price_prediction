@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['_23_23_23_20модель_20предсказания_20цен_20на_20недвижмость_0',['### Модель предсказания цен на недвижмость',['../md__c_1_2_users_2_user_2_desktop_2houce__price__prediction_2_r_e_a_d_m_e.html',1,'']]]
+  ['create_5fmodel_0',['create_model',['../namespacecreate__model.html',1,'create_model'],['../namespacecreate__model.html#a4d6a3f16a83b90629a1c3a3ca5c010c5',1,'create_model.create_model()']]],
+  ['create_5fmodel_2epy_1',['create_model.py',['../create__model_8py.html',1,'']]],
+  ['create_5fmodels_5fcharts_2',['create_models_charts',['../namespacerate.html#a3bdb43f1a48f13278be89f28a3643397',1,'rate']]]
 ];
