@@ -124,3 +124,37 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
+
+## \brief Функция расчета лучшей модели по трем метрикам
+## \authors ivan-dev-lab-home
+## \version 1.0.0
+## \date 13.08.2023
+## \param[in] models_rating Рейтинг моделей, полученный из функции rate_models 
+## \details Программа ищет минимальную метрику из каждого массива ( mse_scores, mae_scores, r2_scores)
+## \details Далее в массиве names происходит поиск имени модели по индексу минимальной ( в случае r2_scores - максимальной) метрики в массиве ( mse_scores, mae_scores, r2_scores)
+## \code
+# best_models["mse"] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]
+# best_models["mae"] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]
+# best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
+## \endcode
+## \brief Пример использования:
+## \code
+# models_rating = rate_models(X, Y, verbose=False)
+# best_models = get_best_models(models_rating)
+# for metric, result in best_models.items():
+#     print(f"Метрика {metric} - лучший результат у {result[0]} = {result[1]}")
+## \endcode
+## \return None
+def get_best_models (models_rating: tuple) -> dict:
+    best_models = {
+        "mse": list,
+        "mae": list,
+        "r2_score": list
+    }
+    names, mse_scores, mae_scores, r2_scores = models_rating
+    
+    best_models["mse"] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]
+    best_models["mae"] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]
+    best_models["r2_score"] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]
+
+    return best_models

@@ -71,7 +71,6 @@ def main ():
         return scores_dict
 
     model = create_model(x_train.shape[1])
-
     # print(model.get_config())
 
     train_result = train_model (model, x_train, x_test, y_train, y_test)
