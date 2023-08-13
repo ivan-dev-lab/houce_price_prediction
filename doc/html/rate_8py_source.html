@@ -80,99 +80,113 @@ $(function() {
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score, mean_absolute_error, mean_squared_error</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> HistGradientBoostingRegressor, ExtraTreesRegressor, BaggingRegressor, AdaBoostRegressor, RandomForestRegressor, GradientBoostingRegressor</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeRegressor</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> preprocess <span class="keyword">import</span> preprocess</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">from</span> create_model <span class="keyword">import</span> create_model</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">from</span> preprocess <span class="keyword">import</span> preprocess</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">from</span> create_model <span class="keyword">import</span> create_model</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacerate.html#a117392a613909de041cfa2f43ed1499c">   22</a></span>data_preprocessed_dict = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/houses-data_kaggle.csv&quot;</span>)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacerate.html#a117392a613909de041cfa2f43ed1499c">   21</a></span>data_preprocessed_dict = <a class="code hl_namespace" href="namespacepreprocess.html">preprocess</a>(<span class="stringliteral">&quot;data/houses-data_kaggle.csv&quot;</span>)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">   28</a></span>X = data_preprocessed_dict[<span class="stringliteral">&quot;X&quot;</span>]</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacerate.html#a80e9f81371822b4141460f03a7ce56bd">   27</a></span>X = data_preprocessed_dict[<span class="stringliteral">&quot;X&quot;</span>]</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">   34</a></span>Y = data_preprocessed_dict[<span class="stringliteral">&quot;Y&quot;</span>]</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacerate.html#a919776fc0de3ac921f2d4d999e81caa0">   33</a></span>Y = data_preprocessed_dict[<span class="stringliteral">&quot;Y&quot;</span>]</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">   44</a></span><span class="keyword">def </span>rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=<span class="keyword">True</span>) -&gt; tuple:</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    model = <a class="code hl_namespace" href="namespacecreate__model.html">create_model</a>(input_shape=len(X.columns))</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    models = {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="stringliteral">&#39;LinearRegression&#39;</span>: LinearRegression,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="stringliteral">&#39;HistGradientBoostingRegressor&#39;</span>: HistGradientBoostingRegressor,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="stringliteral">&#39;ExtraTreesRegressor&#39;</span>: ExtraTreesRegressor,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="stringliteral">&#39;BaggingRegressor&#39;</span>: BaggingRegressor,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="stringliteral">&#39;AdaBoostRegressor&#39;</span>: AdaBoostRegressor,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="stringliteral">&#39;RandomForestRegressor&#39;</span>: RandomForestRegressor,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="stringliteral">&#39;GradientBoostingRegressor&#39;</span>: GradientBoostingRegressor,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="stringliteral">&#39;DecisionTreeRegressor&#39;</span>: DecisionTreeRegressor</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    names, mse_scores, mae_scores, r2_scores = [], [], [], []</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacerate.html#a95aa05a2caf14b504ec45d984735c350">   43</a></span><span class="keyword">def </span>rate_models (X: pd.DataFrame, Y: pd.DataFrame, verbose=<span class="keyword">True</span>) -&gt; tuple:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    model = <a class="code hl_namespace" href="namespacecreate__model.html">create_model</a>(input_shape=len(X.columns))</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    models = {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="stringliteral">&#39;HistGradientBoostingRegressor&#39;</span>: HistGradientBoostingRegressor,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="stringliteral">&#39;ExtraTreesRegressor&#39;</span>: ExtraTreesRegressor,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="stringliteral">&#39;BaggingRegressor&#39;</span>: BaggingRegressor,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="stringliteral">&#39;AdaBoostRegressor&#39;</span>: AdaBoostRegressor,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="stringliteral">&#39;RandomForestRegressor&#39;</span>: RandomForestRegressor,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="stringliteral">&#39;GradientBoostingRegressor&#39;</span>: GradientBoostingRegressor,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="stringliteral">&#39;DecisionTreeRegressor&#39;</span>: DecisionTreeRegressor</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    names, mse_scores, mae_scores, r2_scores = [], [], [], []</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">for</span> name, Model <span class="keywordflow">in</span> models.items():</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">for</span> name, Model <span class="keywordflow">in</span> models.items():</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        model = Model().fit(x_train, y_train)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        y_pred = model.predict(x_test)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        mse = mean_squared_error(y_test, y_pred)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        mae = mean_absolute_error(y_test, y_pred)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        r2 = r2_score(y_test, y_pred)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        names.append(name)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        mse_scores.append(mse)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        mae_scores.append(mae)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        r2_scores.append(r2)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keywordflow">if</span> verbose:</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            print(f<span class="stringliteral">&quot;{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}&quot;</span>)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    model = <a class="code hl_namespace" href="namespacecreate__model.html">create_model</a>(input_shape=X.shape[1])</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    y_pred = model.predict(x_test)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    mse = mean_squared_error(y_test, y_pred)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    mae = mean_absolute_error(y_test, y_pred)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    r2 = r2_score(y_test, y_pred)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    names.append(<span class="stringliteral">&quot;MyModelRegression&quot;</span>)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    mse_scores.append(mse)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    mae_scores.append(mae)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    r2_scores.append(r2)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">if</span> verbose:</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        print(f<span class="stringliteral">&quot;MyModelRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}&quot;</span>)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> (names, mse_scores, mae_scores, r2_scores)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>     </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">  105</a></span><span class="keyword">def </span>create_models_charts (models_rating: tuple) -&gt; <span class="keywordtype">None</span>:</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        model = Model().fit(x_train, y_train)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        y_pred = model.predict(x_test)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        mse = mean_squared_error(y_test, y_pred)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        mae = mean_absolute_error(y_test, y_pred)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        r2 = r2_score(y_test, y_pred)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        names.append(name)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        mse_scores.append(mse)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        mae_scores.append(mae)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        r2_scores.append(r2)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span> verbose:</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            print(f<span class="stringliteral">&quot;{name}:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}&quot;</span>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    model = <a class="code hl_namespace" href="namespacecreate__model.html">create_model</a>(input_shape=X.shape[1])</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    model.fit(x_train, y_train, batch_size=64, epochs=30, verbose=0)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    y_pred = model.predict(x_test)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    mse = mean_squared_error(y_test, y_pred)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    mae = mean_absolute_error(y_test, y_pred)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    r2 = r2_score(y_test, y_pred)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    names.append(<span class="stringliteral">&quot;MyModelRegression&quot;</span>)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    mse_scores.append(mse)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    mae_scores.append(mae)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    r2_scores.append(r2)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> verbose:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        print(f<span class="stringliteral">&quot;MyModelRegression:\nmean_squared_error: {mse}\nmean_absolute_error: {mae}\nr2_score: {r2}&quot;</span>)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">return</span> (names, mse_scores, mae_scores, r2_scores)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>     </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacerate.html#a3bdb43f1a48f13278be89f28a3643397">  103</a></span><span class="keyword">def </span>create_models_charts (models_rating: tuple) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    print(names, mse_scores, mae_scores, r2_scores, sep=<span class="stringliteral">&quot;\n\n&quot;</span>)</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    print(names, mse_scores, mae_scores, r2_scores, sep=<span class="stringliteral">&quot;\n\n&quot;</span>)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    sns.set_style(<span class="stringliteral">&quot;darkgrid&quot;</span>)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    plt.figure(figsize=(20,10))</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    sns.barplot(x=r2_scores, y=names)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    plt.xlabel(<span class="stringliteral">&quot;r2_score&quot;</span>)</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/r2_scores&quot;</span>)</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    sns.barplot(x=mse_scores, y=names)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Squared-Error&quot;</span>)</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MSE&quot;</span>)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    sns.barplot(x=mae_scores, y=names)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Absolute-Error&quot;</span>)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MAE&quot;</span>)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    sns.set_style(<span class="stringliteral">&quot;darkgrid&quot;</span>)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    plt.figure(figsize=(20,10))</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    sns.barplot(x=r2_scores, y=names)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    plt.xlabel(<span class="stringliteral">&quot;r2_score&quot;</span>)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/r2_scores&quot;</span>)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    sns.barplot(x=mse_scores, y=names)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Squared-Error&quot;</span>)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MSE&quot;</span>)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    sns.barplot(x=mae_scores, y=names)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    plt.xlabel(<span class="stringliteral">&quot;Mean-Absolute-Error&quot;</span>)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    plt.ylabel(<span class="stringliteral">&quot;Названия моделей&quot;</span>)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    plt.savefig(f<span class="stringliteral">&quot;models_charts/MAE&quot;</span>)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">  146</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">get_best_models</a> (models_rating: tuple) -&gt; dict:</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    best_models = {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="stringliteral">&quot;mse&quot;</span>: list,</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="stringliteral">&quot;mae&quot;</span>: list,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="stringliteral">&quot;r2_score&quot;</span>: list</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    names, mse_scores, mae_scores, r2_scores = models_rating</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    best_models[<span class="stringliteral">&quot;mse&quot;</span>] = [names[mse_scores.index(min(mse_scores))], min(mse_scores)]</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    best_models[<span class="stringliteral">&quot;mae&quot;</span>] = [names[mae_scores.index(min(mae_scores))], min(mae_scores)]</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    best_models[<span class="stringliteral">&quot;r2_score&quot;</span>] = [names[r2_scores.index(max(r2_scores))], max(r2_scores)]</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> best_models</div>
 <div class="ttc" id="anamespacecreate__model_html"><div class="ttname"><a href="namespacecreate__model.html">create_model</a></div><div class="ttdef"><b>Definition</b> <a href="create__model_8py_source.html#l00001">create_model.py:1</a></div></div>
 <div class="ttc" id="anamespacepreprocess_html"><div class="ttname"><a href="namespacepreprocess.html">preprocess</a></div><div class="ttdef"><b>Definition</b> <a href="preprocess_8py_source.html#l00001">preprocess.py:1</a></div></div>
+<div class="ttc" id="anamespacerate_html_acc01d01b208b1af5fd46ca4986cb71ec"><div class="ttname"><a href="namespacerate.html#acc01d01b208b1af5fd46ca4986cb71ec">rate.get_best_models</a></div><div class="ttdeci">dict get_best_models(tuple models_rating)</div><div class="ttdoc">Функция расчета лучшей модели по трем метрикам</div><div class="ttdef"><b>Definition</b> <a href="rate_8py_source.html#l00146">rate.py:146</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
