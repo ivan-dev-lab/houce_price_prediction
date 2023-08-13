@@ -124,3 +124,21 @@ def create_models_charts (models_rating: tuple) -> None:
     plt.xlabel("Mean-Absolute-Error")
     plt.ylabel("Названия моделей")
     plt.savefig(f"models_charts/MAE")
+
+
+def get_best_models (models_rating: tuple) -> dict:
+    best_models = {
+        "min_mse": list,
+        "min_mae": list,
+        "max_r2_score": list
+    }
+    names, mse_scores, mae_scores, r2_scores = models_rating
+    
+    min_mse, min_mae, max_r2_score = 10**10, 10**10, 0
+    index_min_mse, index_min_mae, index_max_r2_score = 0, 0, 0
+
+
+#models_rating = rate_models(X, Y, verbose=False)
+models_rating = (['LinearRegression', 'HistGradientBoostingRegressor', 'ExtraTreesRegressor', 'BaggingRegressor', 'AdaBoostRegressor', 'RandomForestRegressor', 'GradientBoostingRegressor', 'DecisionTreeRegressor', 'MyModelRegression'], [2.6753618155175763e+32, 55224694775.27331, 102613580043.68875, 65799543072.58395, 84022389107.41452, 78872990158.12392, 52203744209.77829, 93220689035.20511, 44242259436.58469], [766385113772851.4, 133903.85964957363, 130826.03447553428, 125955.01790822748, 208457.5247483247, 128227.21714573719, 128100.39584306322, 157284.26429708343, 113579.19181830296], [-1.7983160514192346e+21, 0.6287924329596177, 0.31025535680504435, 0.557710759729195, 0.43522102268913276, 0.4698340859838226, 0.6490985607549817, 0.3733921877630646, 0.7026138115809493])
+
+get_best_models(models_rating)
