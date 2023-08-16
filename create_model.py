@@ -22,7 +22,7 @@ from keras.metrics import MeanSquaredError
 ## \details Модель скомпилирована с использованием таких функций, как:
 ## <ol>
 ## <li>Функция-оптимизатор: <b>RMSprop</b> с фактором обучения: <b>0.01</b></li>
-## <li>Функция потерь: <b>RMSprop</b> с фактором обучения: <b>0.01</b></li>
+## <li>Функция потерь: <b>Mean-Squared-Error</b></li>
 ## <li>Метрики: <b>[ MeanSquaredError() ]</b></li>
 ## </ol>
 ## \details Ниже представлен исходный код компиляции модели
