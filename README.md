@@ -35,8 +35,8 @@
 <p>Как уже было написано, модель была выполнена исключительно в учебных целях для изучения методов машинного обучения, следовательно не может быть использована в практических задачах из-за специфики данных ( данные по недвижимости ориентированы на Австралию )</p>
 <h2>Данные:</h2>
 <ol>
-<li>Данные, взятые с сайта <b><a href="https://www.kaggle.com/datasets/shree1992/housedata?select=data.csv">kaggle.com</a></b> находятся в <code>YOUR_DIRECTORY/data/houses-data_kaggle.csv</code> </li>
-<li>Данные, взятые с сайта <b><a href="https://dom.mirkvartir.ru/%D0%A1%D0%B2%D0%B5%D1%80%D0%B4%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/%D0%97%D0%B0%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F+%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/">https://dom.mirkvartir.ru/</a></b> находятся в <code>YOUR_DIRECTORY/house_review/houses-data.csv</code> </li>
+<li>Данные, взятые с сайта <b><code><a href="https://www.kaggle.com/datasets/shree1992/housedata?select=data.csv">kaggle.com</a></code></b> находятся в <code>YOUR_DIRECTORY/data/houses-data_kaggle.csv</code> </li>
+<li>Данные, взятые с сайта <b><code><a href="https://dom.mirkvartir.ru/%D0%A1%D0%B2%D0%B5%D1%80%D0%B4%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/%D0%97%D0%B0%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F+%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C/">https://dom.mirkvartir.ru/</a></code></b> находятся в <code>YOUR_DIRECTORY/house_review/houses-data.csv</code> </li>
 </ol>
 <h2>Архитектура модели:</h2>
 <p>После списка представлен исходный код архитектуры модели ( находится в <code>YOUR_DIRECTORY/create_model.py</code> )</p>
@@ -82,6 +82,6 @@
 <h2>Автор проекта</h2>
 <p>Улановский Иван:</p>
 <ol>
-<li><a href="https://github.com/ivan-dev-lab">GitHub</a></li>
-<li><a href="https://t.me/ivan_ne_chik06">Telegram</a></li>
+<li><code><a href="https://github.com/ivan-dev-lab">GitHub</a></code></li>
+<li><code><a href="https://t.me/ivan_ne_chik06">Telegram</a></code></li>
 </ol>
